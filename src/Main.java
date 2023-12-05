@@ -34,10 +34,9 @@ public class Main {
 
 
         int runs = 1440;
-        for (int i = 0; i < 1440; i++){
+        for (int i = 0; i < runs; i++){
             //System.out.println(i);
 
-            //todo figure out why follower response is perfectly exploitable - should win 1/4 of time
             if(g.play(new BestResponseLeaderInit(true, g, 4, p),  new SimpleFollower(), new EmptyLeader(), new BehavioralFollower(followers, followerProbability)) ){
                 e.addWin(g);
                 wins++;
