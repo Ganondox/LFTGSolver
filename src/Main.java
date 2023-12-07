@@ -37,7 +37,7 @@ public class Main {
         for (int i = 0; i < runs; i++){
             //System.out.println(i);
 
-            if(g.play(new BestResponseLeaderInit(true, g, 4, p),  new SimpleFollower(), new EmptyLeader(), new BehavioralFollower(followers, followerProbability)) ){
+            if(g.play(new BehavioralLeader( leaders, leaderProbability),  new SimpleFollower(), new EmptyLeader(), new BestResponseFollowerInit(false, g, 4, p)) ){
                 e.addWin(g);
                 wins++;
                 //System.out.println("WIN");

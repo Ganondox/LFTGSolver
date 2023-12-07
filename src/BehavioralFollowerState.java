@@ -34,11 +34,26 @@ public class BehavioralFollowerState extends FollowerState{
 
     @Override
     FollowerState copy() {
-        return null;
+
+        FollowerState[] strategies = new FollowerState[possibleStrategies.length];
+
+        for(int i = 0; i < possibleStrategies.length; i++){
+            strategies[i] = possibleStrategies[i].copy();
+        }
+
+        return new BehavioralFollowerState(strategies, probabilityofStrategy);
     }
 
     @Override
     FollowerState copy(Game g) {
-        return null;
+
+
+        FollowerState[] strategies = new FollowerState[possibleStrategies.length];
+
+        for(int i = 0; i < possibleStrategies.length; i++){
+            strategies[i] = possibleStrategies[i].copy(g);
+        }
+
+        return new BehavioralFollowerState(strategies, probabilityofStrategy);
     }
 }

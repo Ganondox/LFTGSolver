@@ -33,7 +33,7 @@ public class BestResponseFollower extends FollowerState{
 
             obs.add(i);
 
-            double v = evalState.value(game.current, obs, game.f1Strategy.next(i), game.f2Strategy.next(i), game.l1Strategy.next(i), game.l2Strategy.next(i));
+            double v = evalState.value(game.current.next(i), obs, game.f1Strategy.next(i), game.f2Strategy.next(i), game.l1Strategy.next(i), game.l2Strategy.next(i));
 
             if(!isteam1) v = 1 - v;
 
@@ -71,8 +71,6 @@ public class BestResponseFollower extends FollowerState{
         return new BestResponseFollower(isteam1, game, maxAction, evalState);
     }
 
-
-    //todo: make like leader version
     @Override
     FollowerState copy() {
         return new BestResponseFollower(isteam1, game.copy(), maxAction, evalState);
