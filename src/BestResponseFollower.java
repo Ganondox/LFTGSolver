@@ -4,13 +4,13 @@ import java.util.List;
 public class BestResponseFollower extends FollowerState{
 
 
-    EvalState evalState;
+    EvalInformationState evalState;
 
     boolean isteam1;
     int maxAction;
 
 
-    public BestResponseFollower(boolean isteam1, Game game, int maxAction, EvalState evalState) {
+    public BestResponseFollower(boolean isteam1, Game game, int maxAction, EvalInformationState evalState) {
         this.isteam1 = isteam1;
         this.game = game;
         this.maxAction = maxAction;
@@ -33,7 +33,10 @@ public class BestResponseFollower extends FollowerState{
 
             obs.add(i);
 
-            double v = evalState.value(game.current.next(i), obs, game.f1Strategy.next(i), game.f2Strategy.next(i), game.l1Strategy.next(i), game.l2Strategy.next(i));
+
+            //todo: make in terms of information state
+
+            double v = evalState.value(new InformationState(game.root, obs), obs, game.f1Strategy.next(i), game.f2Strategy.next(i), game.l1Strategy.next(i), game.l2Strategy.next(i));
 
             if(!isteam1) v = 1 - v;
 

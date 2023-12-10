@@ -1,9 +1,14 @@
 import java.util.List;
 
-public abstract class InformationState {
+public class InformationState {
 
     GameHead gameHead;
     List<Integer> observation;
+
+    public InformationState(GameHead gameHead, List<Integer> observation) {
+        this.gameHead = gameHead;
+        this.observation = observation;
+    }
 
     @Override
     public boolean equals(Object obj) {

@@ -27,6 +27,7 @@ public class Main {
 
         EmpiricalHistory e = new EmpiricalHistory();
         PlayThrough p = new PlayThrough();
+        PlayThroughInfo p2 = new PlayThroughInfo();
 
         wins = 0;
 
@@ -37,7 +38,7 @@ public class Main {
         for (int i = 0; i < runs; i++){
             //System.out.println(i);
 
-            if(g.play(new BehavioralLeader( leaders, leaderProbability),  new SimpleFollower(), new EmptyLeader(), new BestResponseFollowerInit(false, g, 4, p)) ){
+            if(g.play(new BehavioralLeader( leaders, leaderProbability),  new SimpleFollower(), new EmptyLeader(), new BestResponseFollowerInit(false, g, 4, p2)) ){
                 e.addWin(g);
                 wins++;
                 //System.out.println("WIN");

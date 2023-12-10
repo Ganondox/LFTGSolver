@@ -6,11 +6,11 @@ public class BestResponseFollowerInit extends Follower {
     Game game;
 
     int max;
-    EvalState evaluator;
+    EvalInformationState evaluator;
 
 
 
-    public BestResponseFollowerInit(boolean isTeam1, Game game, int max, EvalState evaluator) {
+    public BestResponseFollowerInit(boolean isTeam1, Game game, int max, EvalInformationState evaluator) {
         this.isTeam1 = isTeam1;
         this.game = game;
         this.max = max;
